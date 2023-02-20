@@ -1,13 +1,8 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import {Inter} from '@next/font/google'
+import {Home} from "@/app/components/screens/home/Home";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({subsets: ['latin']})
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      Hello world
-    </main>
-  )
+export default function HomePage() {
+  return <Home/>
 }
