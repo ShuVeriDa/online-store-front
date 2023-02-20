@@ -1,5 +1,10 @@
+'use client'
+
 import './assets/styles/globals.scss'
 import Layout from "@/app/components/layout/Layout";
+import { CacheProvider } from '@chakra-ui/next-js'
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 export default function RootLayout({
                                      children,
@@ -14,9 +19,13 @@ export default function RootLayout({
       */}
     <head/>
     <body>
-    <Layout title={'home'}>
-      {children}
-    </Layout>
+    <CacheProvider>
+      <ChakraProvider>
+        <Layout title={'home'}>
+          {children}
+       </Layout>
+      </ChakraProvider>
+    </CacheProvider>
     </body>
     </html>
   )
