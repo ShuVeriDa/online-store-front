@@ -15,13 +15,20 @@ export const Search: FC<ISearchProps> = () => {
     <div className={styles.search}>
       <InputGroup>
         <InputLeftElement pointerEvents={'none'}
-                          children={<SearchIcon color={'gray.300'} />}
+                          children={<SearchIcon color={'gray.300'}/>}
         />
         <Input type={'search'}
                value={searchTerm}
                onChange={e => setSearchTerm(e.currentTarget.value)}
                placeholder={"Search"}
-               variant={'outline'}
+               variant='flushed'
+               _focus={{
+                 boxShadow: "none",
+               }}
+               _focusVisible={{
+                 borderColor: "#008d64"
+               }}
+
         />
       </InputGroup>
 
@@ -30,3 +37,4 @@ export const Search: FC<ISearchProps> = () => {
     </div>
   );
 };
+
