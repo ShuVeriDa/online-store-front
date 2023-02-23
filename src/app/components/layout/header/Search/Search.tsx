@@ -32,8 +32,6 @@ export const Search: FC<ISearchProps> = () => {
         />
       </InputGroup>
 
-      <div>Search</div>
-
     </div>
   );
 };
