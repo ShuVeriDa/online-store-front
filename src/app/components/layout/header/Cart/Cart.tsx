@@ -4,6 +4,7 @@ import {CartItem} from "@/app/components/layout/header/Cart/CartItem/CartItem";
 import {Drawer, DrawerContent} from "@chakra-ui/modal";
 import {Button, DrawerBody, DrawerCloseButton, DrawerFooter, DrawerHeader, DrawerOverlay} from "@chakra-ui/react";
 import {useTypedSelector} from "@/app/hooks/useTypedSelector";
+import {formatToCurrency} from "@/app/utils/format-to-currency";
 
 interface ICartProps {
 }
@@ -14,6 +15,8 @@ export const Cart: FC<ICartProps> = () => {
   const btnRef = useRef<HTMLButtonElement>(null)
 
   const cart = useTypedSelector(state => state.cart.items)
+
+  const total = cart.reduce((acc, item) =>  acc + item.product.price * item.quantity, 0)
 
   return (
     <div className={styles['wrapper-cart']}>
@@ -47,7 +50,7 @@ export const Cart: FC<ICartProps> = () => {
           >
             <div className={styles.footer}>
               <div>Total: </div>
-              <div>$100</div>
+              <div>{formatToCurrency(total)}</div>
             </div>
             <Button colorScheme='green'>Checkout</Button>
           </DrawerFooter>

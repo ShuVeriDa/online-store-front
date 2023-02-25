@@ -3,6 +3,7 @@ import Image from "next/image";
 import {ICartItem} from "@/app/types/cartItem.interface";
 import styles from '../Cart.module.scss';
 import {CartActions} from "@/app/components/layout/header/Cart/CartItem/cart-actions/CartActions";
+import {formatToCurrency} from "@/app/utils/format-to-currency";
 
 export const CartItem: FC<{ item: ICartItem }> = ({item}) => {
   return (
@@ -16,9 +17,7 @@ export const CartItem: FC<{ item: ICartItem }> = ({item}) => {
       <div>
         <div className={styles.name}>{item.product.name}</div>
         <div className={styles.price}>
-          {new Intl.NumberFormat('en-US', {
-            style: 'currency', currency: 'USD'
-          }).format(item.product.price)}
+          {formatToCurrency(item.product.price)}
         </div>
         <CartActions item={item}/>
       </div>
