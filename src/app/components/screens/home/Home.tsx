@@ -1,12 +1,16 @@
 import {FC} from 'react';
+import Layout from "@/app/components/layout/Layout";
+import {Catalog} from "@/app/components/ui/catalog/Catalog";
+import {products} from '@/app/data/product.data';
 
 interface IHomeProps {
 }
 
 export const Home: FC<IHomeProps> = () => {
   return (
-    <div className='flex h-screen w-full items-center justify-content'>
-      <h1 className='text-center text-7xl font-bold text-red'>Shop</h1>
-    </div>
+    <Layout title={'Home'}>
+      <Catalog products={products}/>
+    </Layout>
+
   );
 };

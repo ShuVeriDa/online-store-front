@@ -7,6 +7,7 @@ import {ChakraProvider} from '@chakra-ui/react'
 import {Provider} from "react-redux";
 import {persistor, store} from "@/app/store/store";
 import {PersistGate} from 'redux-persist/integration/react'
+import Header from "@/app/components/layout/header/Header";
 
 export default function RootLayout({
                                      children,
@@ -25,9 +26,7 @@ export default function RootLayout({
       <CacheProvider>
         <ChakraProvider>
           <PersistGate loading={null} persistor={persistor}>
-            <Layout title={'home'}>
-              {children}
-            </Layout>
+            {children}
           </PersistGate>
         </ChakraProvider>
       </CacheProvider>

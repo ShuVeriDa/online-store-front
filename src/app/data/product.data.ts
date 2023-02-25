@@ -16,7 +16,7 @@ export const products: IProduct[] = [
   {
     id: 2,
     description: 'Calories Total Fat 20g Saturated Fat 13g Trans Fat 0.5g 29% 65%',
-    name: 'Peppermint Mocha',
+    name: 'Peppermint Mocha Starbucks',
     images: [
       '/images/products/coffee-cup.png',
     ],
@@ -36,7 +36,7 @@ export const products: IProduct[] = [
   {
     id: 4,
     description: 'Calories Total Fat 19g Saturated Fat 13g Trans Fat 0.5g 29% 65%',
-    name: 'Irish Cream Cold Brew',
+    name: 'Irish Cream Cold Brew Starbucks',
     images: [
       '/images/products/ice-coffee.png',
     ],
