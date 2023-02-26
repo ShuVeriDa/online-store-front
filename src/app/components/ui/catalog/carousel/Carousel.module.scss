@@ -1,17 +1,18 @@
+@import "src/app/assets/styles/variables";
+
 .carousel {
-  @apply grid grid-cols-4 gap-8 mt-32;
+  @apply grid grid-cols-4 gap-8 mt-28;
 }
 
 .item {
-  @apply rounded-3xl bg-light-gray p-5 pt-0 mb-5;
-  width: 24%;
+  @apply relative mb-8 cursor-pointer rounded-3xl bg-light-gray p-5 pt-0;
 
   .image {
     @apply -mt-[4.5rem];
   }
 
   .heading {
-    @apply text-xl text-beige mt-3 font-bold leading-7;
+    @apply block text-left text-xl font-bold leading-7 text-beige;
 
     > div {
       display: -webkit-box;
@@ -22,15 +23,34 @@
   }
 
   .description {
-    @apply text-sm mt-5 text-beige opacity-90
+    @apply text-sm mt-5 text-beige opacity-90;
+  }
+
+  > div {
+    @apply relative
   }
 
   &.active {
-  @apply shadow-green shadow-2xl bg-green;
-    width: 30%;
+    @apply bg-[#6C946B] bg-no-repeat p-7 pt-0 shadow-2xl shadow-[#6C946B];
+
+    //TODO: Не отображается фоновое изображение, исправить
+
+    background-image: url('/public/images/pattern1.jpg');
+    background-position: center -114px;
+    background-size: 120%;
+
+    &::before {
+      @apply absolute top-0 left-0 h-full w-full rounded-3xl;
+      content: '';
+      background-image: linear-gradient(
+                      0deg,
+                      rgba(108, 148, 107, 1) 39%,
+                      rgba(255, 255, 255, 0.4) 100%
+      );
+    }
 
     .heading {
-      @apply text-white text-3xl leading-9;
+      @apply text-3xl leading-9 text-white;
     }
   }
 }
