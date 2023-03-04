@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IAddCartPayload, IChangeQuantityPayload, IInitialState} from "@/app/store/types";
+import {IAddCartPayload, IChangeQuantityPayload, IChangeSizePayload, IInitialState} from "@/app/store/types";
 import {cart} from "@/app/data/cart.data";
 
 const initialState: IInitialState = {
@@ -21,6 +21,11 @@ export const cartSlice = createSlice({
       const {id, type} = action.payload
       const item = state.items.find(item => item.id === id)
       if (item) type === 'plus' ? item.quantity++ : item.quantity--
+    },
+    changeSize: (state, action: PayloadAction<IChangeSizePayload>) => {
+      const {id, size} = action.payload
+      const item = state.items.find(item => item.id === id)
+      if (item) item.size = size
     },
   }
 })

@@ -30,6 +30,19 @@
     @apply relative
   }
 
+  .variations {
+    @apply grid grid-cols-4 gap-2 ;
+
+    > button {
+      @apply transition-colors text-center text-[0.6rem]
+      text-white font-semibold uppercase py-0.5 px-0.5 border border-solid border-white rounded;
+
+      &.active {
+        @apply text-dark-green bg-white;
+      }
+    }
+  }
+
   &.active {
     @apply bg-[#6C946B] bg-no-repeat p-7 pt-0 shadow-2xl shadow-[#6C946B];
 

@@ -7,11 +7,12 @@ import * as url from "url";
 import {background, Button} from "@chakra-ui/react";
 import {useActions} from "@/app/hooks/useActions";
 import {COLORS} from "../../../../../../../config/color.config";
+import {CarouselButton} from "@/app/components/ui/catalog/carousel/carousel-item/CarouselButton";
+import {CarouselVariations} from "@/app/components/ui/catalog/carousel/carousel-item/CarouselVariations";
 
 
 export const CarouselItem: FC<{ product: IProduct }> = ({product}) => {
   const isActive = product.id === 2
-  const {addToCart} = useActions()
 
   return (
     <div className={cn(styles.item, {
@@ -32,23 +33,8 @@ export const CarouselItem: FC<{ product: IProduct }> = ({product}) => {
           ? (
             <>
               {/*TODO: не отображается в центре*/}
-              <div className='text-center'>
-                <Button
-                  onClick={() => addToCart({
-                    product: product,
-                    quantity: 1
-                  })}
-                  color={COLORS.green}
-                  className='tracking-widest'
-                  marginTop={10}
-                  borderRadius={20}
-                  fontWeight={500}
-                  textTransform={"uppercase"}
-                  fontSize={12}
-                >
-                  Add to Basket
-                </Button>
-              </div>
+              <CarouselVariations productId={product.id}/>
+              <CarouselButton product={product} />
             </>
           )
 
@@ -60,4 +46,4 @@ export const CarouselItem: FC<{ product: IProduct }> = ({product}) => {
       </div>
     </div>
   );
-};
+}
